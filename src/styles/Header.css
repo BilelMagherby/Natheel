@@ -1,0 +1,232 @@
+/* Header Styles */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+  transition: all 0.3s ease;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Nav links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--slate-600);
+  padding: 8px 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--brand-blue);
+}
+
+.nav-link.active {
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: var(--brand-blue);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Social icons & actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-links-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-icon-btn {
+  color: var(--slate-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  color: var(--brand-blue);
+  background-color: var(--primary-50);
+  transform: translateY(-2px);
+}
+
+.header-divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--slate-200);
+}
+
+.header-cta-btn {
+  font-size: 0.88rem;
+  padding: 8px 18px;
+}
+
+/* Mobile Toggle */
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--slate-700);
+  border-radius: 8px;
+  background-color: var(--slate-100);
+}
+
+/* Mobile Drawer */
+.mobile-drawer-overlay {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .nav-menu {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .header-actions .social-links-bar,
+  .header-actions .header-divider {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: #ffffff;
+    z-index: 210;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-drawer.open {
+    transform: translateX(-300px);
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--slate-100);
+  }
+
+  .drawer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    flex: 1;
+  }
+
+  .drawer-link {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--slate-700);
+    padding: 10px 12px;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .drawer-link.active {
+    background-color: var(--primary-50);
+    color: var(--brand-blue);
+  }
+
+  .drawer-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--slate-100);
+  }
+
+  .drawer-social {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Projects Section Component Styles - Luxury Portfolio Showcase
+   ========================================================================== */
+
+.projects-section {
+  padding: 6.5rem 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #f0f7ff 50%, #f8fafc 100%);
+  position: relative;
+}
+
+/* Filter Tabs */
+.projects-filter-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.filter-tab-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--dark-700);
+  padding: 0.65rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+}
+
+.filter-tab-btn:hover {
+  border-color: var(--primary-400);
+  color: var(--primary-600);
+  background: var(--primary-50);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-tab-btn.active {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+}
+
+@media (max-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual Project Card */
+.project-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(2, 132, 199, 0.18), 0 10px 20px -5px rgba(15, 23, 42, 0.05);
+  border-color: var(--primary-300);
+}
+
+.project-card-image-wrapper {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  background-color: var(--dark-900);
+}
+
+.project-card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-card-image-wrapper img {
+  transform: scale(1.08);
+}
+
+.project-card-overlay-badges {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  right: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.project-badge-year {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 0.28rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-badge-category {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--primary-700);
+  padding: 0.28rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Body */
+.project-card-body {
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-card-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--dark-900);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.project-card-tagline {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-600);
+  margin-bottom: 0.9rem;
+}
+
+.project-card-summary {
+  font-size: 0.94rem;
+  color: var(--dark-600);
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+  flex-grow: 1;
+}
+
+/* Card Footer / Action */
+.project-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-subtle);
+  gap: 0.8rem;
+}
+
+.btn-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  background: var(--primary-50);
+  color: var(--primary-600);
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--primary-100);
+}
+
+.project-card:hover .btn-learn-more {
+  background: var(--primary-500);
+  color: #ffffff;
+  border-color: var(--primary-500);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.project-tags-preview {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.mini-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  padding: 0.22rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+}

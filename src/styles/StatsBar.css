@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Stats Bar Component Styles - Luxury Floating Glass
+   ========================================================================== */
+
+.stats-section-wrapper {
+  position: relative;
+  z-index: 25;
+  margin-top: -3.8rem;
+  padding-bottom: 2.5rem;
+}
+
+.stats-card-container {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.14), 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+  padding: 2.2rem 2.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.stats-card-container:hover {
+  box-shadow: 0 25px 60px -10px rgba(2, 132, 199, 0.2), 0 12px 30px -5px rgba(15, 23, 42, 0.08);
+}
+
+.stats-card-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 40%, #d97706 80%, #f59e0b 100%);
+}
+
+.stat-item-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0.8rem 1.2rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: var(--radius-md);
+}
+
+.stat-item-block:hover {
+  transform: translateY(-4px);
+}
+
+.stat-item-block:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(226, 232, 240, 0.9), transparent);
+}
+
+.stat-icon-bubble {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  color: var(--primary-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 1px solid var(--primary-200);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-item-block:hover .stat-icon-bubble {
+  transform: translateY(-4px) scale(1.08);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+}
+
+.stat-number-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--dark-900);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.stat-prefix, .stat-suffix {
+  color: var(--primary-500);
+  font-weight: 800;
+}
+
+.stat-suffix {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+
+.stat-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--dark-800);
+  margin-bottom: 0.3rem;
+}
+
+.stat-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+@media (max-width: 1024px) {
+  .stats-card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .stat-item-block:nth-child(2)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-section-wrapper {
+    margin-top: -2.2rem;
+  }
+
+  .stats-card-container {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding: 1.6rem 1.2rem;
+  }
+
+  .stat-item-block::after {
+    display: none !important;
+  }
+
+  .stat-number-wrapper {
+    font-size: 2.2rem;
+  }
+}

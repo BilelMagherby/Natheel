@@ -1,0 +1,45 @@
+.privacy-modal-dialog {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  max-width: 720px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-modal-header {
+  padding: 2.2rem 2.2rem 1.5rem 2.2rem;
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+}
+
+.privacy-modal-body {
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  line-height: 1.8;
+  color: var(--dark-700);
+}
+
+.privacy-section-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark-900);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.privacy-modal-footer {
+  padding: 1.4rem 2.2rem;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: flex-end;
+}

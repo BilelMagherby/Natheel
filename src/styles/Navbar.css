@@ -1,0 +1,205 @@
+.natheel-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all var(--transition-base);
+}
+
+.natheel-navbar.scrolled {
+  box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.12);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 86px;
+  gap: 1.5rem;
+}
+
+/* Nav Links Menu */
+.nav-links-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 0.5rem;
+  background: rgba(241, 245, 249, 0.7);
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.nav-link-item button {
+  background: transparent;
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark-700);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-link-item button:hover {
+  color: var(--primary-600);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.nav-link-item.active button {
+  background: #ffffff;
+  color: var(--primary-600);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+}
+
+/* Social & Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.social-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  color: var(--dark-600);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.social-btn:hover {
+  background: var(--primary-50);
+  color: var(--primary-600);
+  border-color: var(--primary-200);
+  transform: translateY(-2px);
+}
+
+.cta-pitch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+  transition: all var(--transition-base);
+}
+
+.cta-pitch-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+}
+
+/* Mobile Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem;
+  color: var(--dark-800);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Drawer Overlay */
+.mobile-drawer-overlay {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .nav-links-list,
+  .social-icons-group {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .mobile-drawer-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+  }
+
+  .mobile-drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-drawer-content {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    bottom: 0;
+    width: 300px;
+    background: #ffffff;
+    z-index: 1200;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    transition: right var(--transition-smooth);
+  }
+
+  .mobile-drawer-overlay.open .mobile-drawer-content {
+    right: 0;
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .mobile-nav-links button {
+    width: 100%;
+    text-align: right;
+    padding: 0.9rem 1.2rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-subtle);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--dark-800);
+    transition: all var(--transition-fast);
+  }
+
+  .mobile-nav-links .active button {
+    background: var(--primary-500);
+    color: #ffffff;
+  }
+}
