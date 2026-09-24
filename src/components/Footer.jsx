@@ -7,7 +7,8 @@ import {
   MapPin, 
   Phone, 
   Mail, 
-  Sparkles
+  Sparkles,
+  QrCode
 } from 'lucide-react';
 import '../styles/Footer.css';
 
@@ -19,7 +20,7 @@ export function Footer({ onNavigate, onSelectProject, onOpenPrivacyModal }) {
       <div className="container">
         <div className="footer-main-grid">
           {/* Col 1: Brand Info */}
-          <div className="footer-col">
+          <div className="footer-col brand-col">
             <Logo size="medium" light={true} onClick={() => onNavigate('home')} />
             
             <p className="footer-about-p">
@@ -30,6 +31,21 @@ export function Footer({ onNavigate, onSelectProject, onOpenPrivacyModal }) {
               <Sparkles size={16} color="#38bdf8" />
               <span>مواكبون لمستهدفات رؤية السعودية 2030</span>
             </div>
+
+            <ul className="footer-contact-mini-list">
+              <li>
+                <MapPin size={16} />
+                <span>{siteConfig.contact.address}</span>
+              </li>
+              <li>
+                <Phone size={16} />
+                <span dir="ltr">{siteConfig.contact.phoneDisplay}</span>
+              </li>
+              <li>
+                <Mail size={16} />
+                <span>{siteConfig.contact.email}</span>
+              </li>
+            </ul>
           </div>
 
           {/* Col 2: Fast Navigation */}
@@ -71,37 +87,39 @@ export function Footer({ onNavigate, onSelectProject, onOpenPrivacyModal }) {
             </ul>
           </div>
 
-          {/* Col 4: Contact info in Hail */}
-          <div className="footer-col">
-            <h3 className="footer-col-title">معلومات التواصل</h3>
-            <ul className="footer-contact-list">
-              <li className="footer-contact-item">
-                <MapPin size={18} />
-                <span>{siteConfig.contact.address}</span>
-              </li>
-              <li className="footer-contact-item">
-                <Phone size={18} />
-                <span dir="ltr">{siteConfig.contact.phoneDisplay}</span>
-              </li>
-              <li className="footer-contact-item">
-                <Mail size={18} />
-                <span>{siteConfig.contact.email}</span>
-              </li>
-            </ul>
+          {/* Col 4: QR Code & Social Media Channels */}
+          <div className="footer-col qr-social-col">
+            <h3 className="footer-col-title">تواصل وتابعنا</h3>
+            
+            <div className="footer-qr-card">
+              <div className="footer-qr-image-wrap">
+                <img 
+                  src="/images/qr-code.png" 
+                  alt="QR Code - نثيل للاستثمار" 
+                  className="footer-qr-img"
+                  loading="lazy"
+                />
+                <div className="footer-qr-scan-line" />
+              </div>
+              <div className="footer-qr-caption">
+                <QrCode size={16} color="#38bdf8" />
+                <span>امسح الرمز للتواصل المباشر</span>
+              </div>
+            </div>
 
-            {/* Social Icons */}
-            <div style={{ display: 'flex', gap: '0.6rem', marginTop: '1.5rem' }}>
+            {/* Social Media Icons under QR code (LinkedIn, Instagram, Snapchat, TikTok, X) */}
+            <div className="footer-social-icons-wrapper">
               {siteConfig.socialLinks.map((s, idx) => (
                 <a
                   key={idx}
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-btn"
-                  style={{ background: 'rgba(255,255,255,0.08)', color: '#cbd5e1' }}
+                  className="footer-social-btn"
                   aria-label={s.name}
+                  title={s.name}
                 >
-                  <SocialIcon name={s.icon} size={16} />
+                  <SocialIcon name={s.icon} size={18} />
                 </a>
               ))}
             </div>

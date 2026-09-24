@@ -22,10 +22,11 @@ export const siteConfig = {
     workingHours: "الأحد - الخميس: 8:00 صباحاً - 5:00 مساءً"
   },
   socialLinks: [
-    { name: "X (تويتر)", url: "https://x.com", icon: "x" },
-    { name: "إنستغرام", url: "https://instagram.com", icon: "instagram" },
     { name: "لينكد إن", url: "https://linkedin.com", icon: "linkedin" },
-    { name: "يوتيوب", url: "https://youtube.com", icon: "youtube" }
+    { name: "إنستغرام", url: "https://instagram.com", icon: "instagram" },
+    { name: "سناب شات", url: "https://snapchat.com", icon: "snapchat" },
+    { name: "تيك توك", url: "https://tiktok.com", icon: "tiktok" },
+    { name: "X (تويتر)", url: "https://x.com", icon: "x" }
   ]
 };
 
